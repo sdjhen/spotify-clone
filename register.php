@@ -1,4 +1,9 @@
 <?php
+include("inc/classes/Account.php");
+
+// Instantiate Account class
+$account = new Account();
+
 include("inc/handlers/register_handler.php");
 include("inc/handlers/login_handler.php");
 ?>
