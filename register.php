@@ -35,21 +35,26 @@ include("inc/handlers/login_handler.php");
         <form id="registerForm" action="register.php" method="POST">
             <h2>Create your free account.</h2>
             <p>
-                <label for="userName">Username:</label>
-                <input id="userName" name="userName" type="text" placeholder="Username" required>
+                <?php echo $account->getError("Your username must be between 5 and 25 characters"); ?>
+                <label for="username">Username:</label>
+                <input id="username" name="username" type="text" placeholder="Username" required>
             </p>
 
             <p>
-                <label for="firstName">First Name:</label>
-                <input id="firstName" name="firstName" type="text" placeholder="First Name" required>
+                <?php echo $account->getError("Your first name should be between 2 and 25 characters"); ?>
+                <label for="firstname">First Name:</label>
+                <input id="firstname" name="firstname" type="text" placeholder="First Name" required>
             </p>
 
             <p>
-                <label for="lastName">Last Name:</label>
-                <input id="lastName" name="lastName" type="text" placeholder="Last Name" required>
+                <?php echo $account->getError("Your last name should be between 2 and 25 characters"); ?>
+                <label for="lastname">Last Name:</label>
+                <input id="lastname" name="lastname" type="text" placeholder="Last Name" required>
             </p>
 
             <p>
+                <?php echo $account->getError("Your emails don't match!"); ?>
+                <?php echo $account->getError("Email is invalid"); ?>
                 <label for="email">Email:</label>
                 <input id="email" name="email" type="email" placeholder="Email" required>
             </p>
@@ -60,6 +65,9 @@ include("inc/handlers/login_handler.php");
             </p>
 
             <p>
+                <?php echo $account->getError("Your passwords don't match!"); ?>
+                <?php echo $account->getError("Your password can only contain letters and numbers"); ?>
+                <?php echo $account->getError("Your password must be between 6 and 30 characters"); ?>
                 <label for="password">Password:</label>
                 <input id="password" name="password" type="password" placeholder="Password" required>
             </p>
