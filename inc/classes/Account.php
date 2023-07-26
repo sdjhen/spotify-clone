@@ -41,7 +41,8 @@ class Account
         $encrypted_pw = password_hash($pw, PASSWORD_BCRYPT);
         $profile_pic = "assets/img/profilepics/profile.png";
         $date = date("Y-m-d");
-        $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encrypted_pw', '$date', '$profile_pic')");
+        $result = mysqli_query($this->con, "INSERT INTO users (username, firstname, lastname, email, password, registerdate, profilepic) VALUES ('$un', '$fn', '$ln', '$em', '$encrypted_pw', '$date', '$profile_pic')");
+
         return $result;
     }
 
