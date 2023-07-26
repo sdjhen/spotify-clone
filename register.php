@@ -4,7 +4,7 @@ include("inc/classes/Account.php");
 include("inc/classes/Constants.php");
 
 // Instantiate Account class
-$account = new Account();
+$account = new Account($con);
 
 include("inc/handlers/register_handler.php");
 include("inc/handlers/login_handler.php");
