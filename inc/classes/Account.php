@@ -88,10 +88,11 @@ class Account
             return;
         }
 
-        // if () {
-        //     //TODO: Check username hasn't been used
-        // }
-
+        $check_EmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email = '$em'");
+        if (mysqli_num_rows($check_EmailQuery) != 0) {
+            array_push($this->errorArray, Constants::$email_Taken);
+            return;
+        }
     }
 
     private function validatePasswords($pw, $pw2)

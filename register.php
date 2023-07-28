@@ -66,6 +66,7 @@ function getInputValue($name)
             <p>
                 <?php echo $account->getError(Constants::$emails_DoNotMatch); ?>
                 <?php echo $account->getError(Constants::$emails_Invalid); ?>
+                <?php echo $account->getError(Constants::$email_Taken); ?>
                 <label for="email">Email:</label>
                 <input id="email" name="email" type="email" placeholder="Email" value="<?php getInputValue('email') ?>" required>
             </p>

@@ -11,6 +11,8 @@ class Constants
 
     public static $emails_DoNotMatch = "Your emails don't match!";
 
+    public static $email_Taken = "An account has already been registered with this email";
+
     public static $firstname_Characters = "Your first name should be between 2 and 25 characters";
 
     public static $lastname_Characters = "Your last name should be between 2 and 25 characters";
