@@ -46,6 +46,7 @@ function getInputValue($name)
             <h2>Create your free account.</h2>
             <p>
                 <?php echo $account->getError(Constants::$username_Characters); ?>
+                <?php echo $account->getError(Constants::$username_Taken); ?>
                 <label for="username">Username:</label>
                 <input id="username" name="username" type="text" placeholder="Username" value="<?php getInputValue('username') ?>" required>
             </p>

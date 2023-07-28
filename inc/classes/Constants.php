@@ -16,4 +16,6 @@ class Constants
     public static $lastname_Characters = "Your last name should be between 2 and 25 characters";
 
     public static $username_Characters = "Your username must be between 5 and 25 characters";
+
+    public static $username_Taken = " This username already exists";
 }
