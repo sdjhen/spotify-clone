@@ -1,6 +1,8 @@
 <?php
 class Constants
 {
+    // Register Error Messages
+
     public static $passwords_DoNotMatch = "Your passwords don't match!";
 
     public static $passwords_NotAlphaNumeric = "Your password can only contain letters and numbers";
@@ -20,4 +22,8 @@ class Constants
     public static $username_Characters = "Your username must be between 5 and 25 characters";
 
     public static $username_Taken = " This username already exists";
+
+    //Login Error Messages
+
+    public static $login_Failed = " Your username or password was incorrect";
 }

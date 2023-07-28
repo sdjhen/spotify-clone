@@ -11,6 +11,23 @@ class Account
         $this->errorArray = array();
     }
 
+    public function login($un, $pw)
+    {
+        // Encrypt password via hashing
+        $pw = password_hash($pw, PASSWORD_BCRYPT);
+
+        // SQL Query
+        $query = mysqli_query($this->con, "SELECT * FROM users WHERE username= '$un' AND password= '$pw'");
+
+        // Check user details match DB entry
+        if (mysqli_num_rows($query) == 1) {
+            return true;
+        } else {
+            array_push($this->errorArray, Constants::$login_Failed);
+            return false;
+        }
+    }
+
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2)
     {
         // Call Validate functions
@@ -54,7 +71,7 @@ class Account
             return;
         }
 
-        $check_UsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE usernname = '$un'");
+        $check_UsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username = '$un'");
         if (mysqli_num_rows($check_UsernameQuery) != 0) {
             array_push($this->errorArray, Constants::$username_Taken);
             return;
