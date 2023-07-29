@@ -13,19 +13,22 @@ class Account
 
     public function login($un, $pw)
     {
-        // Encrypt password via hashing
-        $pw = password_hash($pw, PASSWORD_BCRYPT);
+        // SQL Query to retrieve hashed password
+        $query = mysqli_query($this->con, "SELECT password FROM users WHERE username = '$un'");
 
-        // SQL Query
-        $query = mysqli_query($this->con, "SELECT * FROM users WHERE username= '$un' AND password= '$pw'");
-
-        // Check user details match DB entry
         if (mysqli_num_rows($query) == 1) {
-            return true;
-        } else {
-            array_push($this->errorArray, Constants::$login_Failed);
-            return false;
+            $row = mysqli_fetch_assoc($query);
+            $hashed_Password = $row['password'];
+
+            // Compare the entered password with the hashed password
+            if (password_verify($pw, $hashed_Password)) {
+                return true;
+            }
         }
+
+        // If the code reaches this point, the login has failed
+        array_push($this->errorArray, Constants::$login_Failed);
+        return false;
     }
 
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2)
