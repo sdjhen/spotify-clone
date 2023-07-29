@@ -1,6 +1,9 @@
 <?php
 ob_start();
 
+// Start User Session
+session_start();
+
 // Set Timezone
 $timezone = date_default_timezone_set("Europe/London");
 

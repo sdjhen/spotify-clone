@@ -41,6 +41,7 @@ if (isset($_POST['registerBtn'])) {
 
     // Redirect to index if login succeeds
     if ($was_successful == true) {
+        $_SESSION['userLoggedIn'] = $username;
         header("Location: index.php");
     }
 }
