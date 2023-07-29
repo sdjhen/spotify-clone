@@ -26,6 +26,8 @@ function getInputValue($name)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotifly | Clone</title>
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="./assets/js/register.js"></script>
 </head>
 
 <body>
@@ -45,6 +47,11 @@ function getInputValue($name)
                         <input id="loginPassword" name="loginPassword" type="password" placeholder="Password" required>
                     </p>
                     <button type="submit" name="loginBtn">Log In</button>
+
+                    <div class="hasAccountText">
+                        <span id="hideLogin">Don't have an account yet? Sign up here.</span>
+                    </div>
+
                 </form>
 
                 <form id="registerForm" action="register.php" method="POST">
@@ -94,6 +101,11 @@ function getInputValue($name)
                         <input id="password2" name="password2" type="password" placeholder=" Confirm Password" required>
                     </p>
                     <button type="submit" name="registerBtn">Register</button>
+
+                    <div class="hasAccountText">
+                        <span id="hideRegister">Already have an account? Login here.</span>
+                    </div>
+
                 </form>
             </div>
         </div>
