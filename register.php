@@ -26,9 +26,32 @@ function getInputValue($name)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotifly | Clone</title>
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
+    <script src="https://kit.fontawesome.com/6285598676.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="./assets/js/register.js"></script>
 </head>
+
+<?php
+if (isset($_POST['registerBtn'])) {
+    echo <<<EOT
+<script>
+    $(document).ready(function() {
+        $('#loginForm').hide();
+        $('#registerForm').show();
+    });
+</script>
+EOT;
+} else {
+    echo <<<EOT
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').show();
+            $('#registerForm').hide();
+        });
+    </script>
+    EOT;
+}
+?>
 
 <body>
     <div id="background">
@@ -39,7 +62,7 @@ function getInputValue($name)
                     <p>
                         <?php echo $account->getError(Constants::$login_Failed); ?>
                         <label for="loginUsername">Username:</label>
-                        <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" required>
+                        <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" value="<?php getInputValue('loginUsername') ?>" required>
                     </p>
                     <p>
                         <?php echo $account->getError(Constants::$login_Failed); ?>
@@ -108,8 +131,19 @@ function getInputValue($name)
 
                 </form>
             </div>
+
+            <div id="loginText">
+                <h1>Stream the best Music. Instantly.</h1>
+                <h2>And it's all for free.</h2>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i>Discover music you'll love</li>
+                    <li><i class="fa-solid fa-check"></i>Create custom playlists</li>
+                    <li><i class="fa-solid fa-check"></i>Listen to the latest hits</li>
+                </ul>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
