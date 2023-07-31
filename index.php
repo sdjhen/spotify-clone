@@ -26,7 +26,24 @@ if (isset($_SESSION['userLoggedIn'])) {
         <div id="nowPlayingBar">
             <!-- Now Playing divs -->
             <div id="nowPlayingLeft">
+                <div class="content">
+                    <span class="albumLink">
+                        <img src="/" class="albumArtwork">
+                    </span>
+                    <!-- Track Info Labels -->
+                    <div class="trackInfo">
 
+                        <span class="trackName">
+                            <span>Right here</span>
+                        </span>
+
+                        <span class="artistName">
+                            <span>Sam Hendry</span>
+                        </span>
+
+                    </div>
+                    <!-- End of Track Info Labels -->
+                </div>
             </div>
 
             <div id="nowPlayingCenter">
@@ -86,7 +103,20 @@ if (isset($_SESSION['userLoggedIn'])) {
             </div>
 
             <div id="nowPlayingRight">
+                <div class="volumeBar">
+                    <button class="controlBtn volume" title="Volume button">
+                        <span class="material-symbols-outlined">
+                            volume_up
+                        </span>
+                    </button>
 
+                    <div class="progressBar">
+                        <div class="progressBarBg">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <!-- End of Now playing divs -->
         </div>

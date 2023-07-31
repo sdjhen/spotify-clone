@@ -4,6 +4,11 @@ html, body {
     height: 100%;
 }
 
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+}
+
 /* Container Styling */
 
 #nowPlayingBarContainer {
@@ -28,6 +33,11 @@ html, body {
 #nowPlayingRight {
     width: 30%;
     min-width: 180px;
+}
+
+#nowPlayingRight {
+    position: relative;
+    margin-top: 16px;
 }
 
 #nowPlayingCenter {
@@ -120,4 +130,43 @@ html, body {
 
 .playbackBar .progressBar {
     margin-top: 5px;
+    height: 57px;
+}
+
+/* Artist Track Styling */
+
+#nowPlayingLeft .albumArtWork {
+    height: 100% !important;
+    max-width: 57px !important;
+    margin-right: 15px !important;
+    float: left !important;
+    background-size: cover !important;
+}
+
+.trackInfo {
+    display: table;
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+.volumeBar {
+    width: 180px !important;
+    position: absolute !important;
+    right: 0 !important;
+    
+}
+
+.volumeBar .progressBar {
+    width: 125px;
+    margin-left: 10px;
+
 }

@@ -25,8 +25,8 @@ function getInputValue($name)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotifly | Clone</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/register.css">
     <script src="https://kit.fontawesome.com/6285598676.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/register.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="./assets/js/register.js"></script>
 </head>
@@ -131,7 +131,7 @@ EOT;
 
                 </form>
             </div>
-
+            <!-- Right Side Content -->
             <div id="loginText">
                 <h1>Stream the best Music. Instantly.</h1>
                 <h2>And it's all for free.</h2>
