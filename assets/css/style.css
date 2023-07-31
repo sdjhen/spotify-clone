@@ -1,0 +1,123 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Container Styling */
+
+#nowPlayingBarContainer {
+    width: 100%;
+    background-color: #282828;
+    bottom: 0;
+    position: fixed;
+    min-width: 620px;
+  
+    }
+
+/* Playing Bar Styling */
+
+#nowPlayingBar {
+    display: flex;
+    height: 90px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight {
+    width: 30%;
+    min-width: 180px;
+}
+
+#nowPlayingCenter {
+    width: 40%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nowPlayingBar .content {
+    width: 100%;
+}
+
+/* Button Styling */
+
+.playerControls .buttons {
+    margin: 0 auto;
+    display: table;
+}
+
+.controlBtn {
+    background-color: transparent !important;
+    color: #fff !important;
+    border: none !important;
+    vertical-align: middle !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 10px; 
+    display: inline-block; 
+}
+
+/* Custom styles for the Play button */
+.controlBtn.play span,
+.controlBtn.pause span {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 32px !important;
+}
+
+.controlBtn:hover {
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    font-size: 32px !important;
+}
+
+/* Progress Bar Styling */
+
+.playbackBar {
+    display: flex;
+    margin-top: 10px; 
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.progressBarBg {
+    background-color: #404040;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.progressTime {
+    color: #a0a0a0;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progressTime {
+    color: #a0a0a0;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+    }
+
+.progress {
+    background-color: #a0a0a0;
+    height: 4px;
+    width: 0;
+    border-radius: 2px;
+}
+
+.playbackBar .progressBar {
+    margin-top: 5px;
+}
