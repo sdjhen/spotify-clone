@@ -7,15 +7,21 @@ if (isset($_GET['id'])) {
 }
 
 $album = new Album($con, $albumID);
-
 // Call getArtist Function
 $artist = $album->getArtist();
-
-// Print album title and artist name
-echo $album->getTitle() . '<br>';
-echo $artist->getName();
-
-
 ?>
+
+<div class="entityInfo">
+
+    <div class="leftSection">
+        <img src="<?php echo $album->getArtworkPath(); ?>" alt="Album Artwork">
+    </div>
+
+    <div class="rightSection">
+        <h2><?php echo $album->getTitle(); ?></h2>
+        <span>By <?php echo $artist->getName(); ?></span>
+    </div>
+
+</div>
 
 <?php include("inc/footer.php"); ?>
