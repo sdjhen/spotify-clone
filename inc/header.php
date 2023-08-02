@@ -1,5 +1,6 @@
 <?php
 include("inc/config.php");
+include("inc/classes/Artist.php");
 
 // Set session variable
 if (isset($_SESSION['userLoggedIn'])) {
