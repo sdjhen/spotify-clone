@@ -321,8 +321,8 @@ padding: 40px 0 10px 0;
     margin-top: 0;
 }
 
-.entityInfo .rightSection span {
-    color: #939393;
+.entityInfo .rightSection p {
+    color: #939393 !important;
     font-weight: 200;
 }
 

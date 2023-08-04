@@ -2,6 +2,7 @@
 include("inc/config.php");
 include("inc/classes/Artist.php");
 include("inc/classes/Album.php");
+include("inc/classes/Song.php");
 
 // Set session variable
 if (isset($_SESSION['userLoggedIn'])) {
