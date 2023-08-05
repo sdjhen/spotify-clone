@@ -28,7 +28,6 @@ class Album
 
     public function getTitle()
     {
-
         return $this->title;
     }
 
@@ -41,6 +40,7 @@ class Album
     {
         return $this->artworkPath;
     }
+
     public function getGenre()
     {
         return $this->genre;
@@ -50,5 +50,17 @@ class Album
     {
         $query = mysqli_query($this->con, "SELECT id FROM Songs WHERE album='$this->id'");
         return mysqli_num_rows($query);
+    }
+
+    public function getSongIDs()
+    {
+        $query = mysqli_query($this->con, "SELECT id FROM Songs WHERE album ='$this->id' ORDER BY albumOrder ASC");
+
+        $array = array();
+
+        while ($row = mysqli_fetch_array($query)) {
+            array_push($array, $row['id']);
+        }
+        return $array;
     }
 }

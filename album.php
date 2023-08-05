@@ -23,6 +23,49 @@ $artist = $album->getArtist();
         <p><?php echo $album->GetNumberOfSongs(); ?> Song</p>
     </div>
 
+    <!-- Track List -->
+    <div class="tracklistContainer">
+        <ul class="tracklist">
+
+            <?php
+            $songIDArray = $album->getSongIDs();
+
+            $i = 1;
+            foreach ($songIDArray as $songID) {
+
+                $albumSong = new Song($con, $songID);
+                $albumArtist = $albumSong->getArtist();
+
+                echo "<li class='tracklistRow'>
+                    <div class='trackCount'>
+                    <span class='material-symbols-outlined'>
+                        play_arrow</span>
+                    <span class='trackNumber'>$i</span>
+                    </div>
+
+                    <div class='trackInfo'>
+                    <span class ='trackName'>" . $albumSong->getTitle() .
+                    "</span>
+                    <span class='artistName'>" . $albumArtist->getName() . "</span>
+                    </div>
+
+                    <div class='trackOptions'>
+                    <img class='optionsButton' src='assets/img/icons/options.png'>
+                        </div>
+
+                        <div class='trackDuration'>
+                        <span class='duration'>" . $albumSong->getDuration() . "</span>
+                        </div>
+
+                    </li>";
+
+                $i++;
+            }
+
+            ?>
+
+        </ul>
+    </div>
 
 
 
