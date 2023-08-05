@@ -326,3 +326,110 @@ padding: 40px 0 10px 0;
     font-weight: 200;
 }
 
+/* Track List Styling */
+
+.tracklistContainer {
+    width: 100%;
+}
+
+.tracklist {
+    padding: 0;
+}
+
+.tracklistRow {
+    display: flex;
+    align-items: flex-start; 
+    height: auto; 
+    padding: 15px 10px;
+    list-style: none;
+    margin-bottom: 7px; 
+}
+
+.tracklistRow span {
+    color: #939393;
+    font-weight: 200;
+}
+
+.tracklistRow:hover {
+    background-color: #282828;
+}
+
+.tracklistRow .trackCount {
+    width: 8%;
+    position: relative;
+    transition: .2s;
+}
+
+.tracklistRow .trackCount .trackNumber {
+    display: inline;
+}
+
+.tracklistRow:hover .trackCount .trackNumber {
+    display: none;
+}
+
+.tracklistRow:hover .trackCount .material-symbols-outlined {
+    display: inline;
+}
+
+.tracklistRow .trackInfo {
+    margin-left: 10px;
+    width: 75%;
+    position: relative;
+}
+
+
+.tracklistRow .trackOptions,
+.tracklistRow .trackDuration {
+    margin-left: auto;
+    display: inline; /* Show img and duration without hover */
+}
+
+/* Style the img */
+.tracklistRow .optionsButton {
+    width: 15px; 
+    height: 15px;
+    margin-right: 5px; 
+    cursor: pointer;
+}
+
+.tracklistRow .trackCount .material-symbols-outlined {
+    font-size: 18px;
+    margin-right: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.tracklistRow:hover .trackCount .material-symbols-outlined {
+    display: inline;
+    cursor: pointer;  
+}
+
+.tracklistRow .trackCount .trackNumber {
+    /* Position the trackNumber inline with the trackName */
+    display: inline;
+    position: relative;
+    top: -3px; 
+    margin-right: 5px; 
+}
+
+/* Hide the trackNumber span on hover and show it by default */
+.tracklistRow:hover .trackCount .trackNumber {
+    display: none;
+}
+
+
+.tracklistRow {
+    padding-right: 30px; 
+}
+
+
+.tracklistRow .trackName {
+    color: #fff;
+}
+
+/* Display the artist as a block underneath the track name */
+.tracklistRow .artistName {
+    display: block;
+    margin-top: 5px; 
+}

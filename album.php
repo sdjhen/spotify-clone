@@ -37,27 +37,26 @@ $artist = $album->getArtist();
                 $albumArtist = $albumSong->getArtist();
 
                 echo "<li class='tracklistRow'>
-                    <div class='trackCount'>
+                <div class='trackCount'>
                     <span class='material-symbols-outlined'>
                         play_arrow</span>
                     <span class='trackNumber'>$i</span>
-                    </div>
-
-                    <div class='trackInfo'>
-                    <span class ='trackName'>" . $albumSong->getTitle() .
-                    "</span>
+                </div>
+        
+                <div class='trackInfo'>
+                    <span class ='trackName'>" . $albumSong->getTitle() . " </span> 
+                   
                     <span class='artistName'>" . $albumArtist->getName() . "</span>
-                    </div>
-
-                    <div class='trackOptions'>
+                </div>
+        
+                <div class='trackOptions'>
                     <img class='optionsButton' src='assets/img/icons/options.png'>
-                        </div>
-
-                        <div class='trackDuration'>
-                        <span class='duration'>" . $albumSong->getDuration() . "</span>
-                        </div>
-
-                    </li>";
+                </div>
+        
+                <div class='trackDuration'>
+                    <span class='duration'>" . $albumSong->getDuration() . "</span>
+                </div>
+            </li>";
 
                 $i++;
             }
