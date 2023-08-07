@@ -1,3 +1,17 @@
+ <?php
+    // Retrieve 10 random songs from DB
+    $songQuery = mysqli_query($con, "SELECT id FROM Songs ORDER BY RAND() LIMIT 10");
+
+    $resultArray = array();
+    // Loop & push into empty results array
+    while ($row = mysqli_fetch_array($songQuery)) {
+        array_push($resultArray, $row['id']);
+    }
+
+    // Convert to JSON 
+    $jsonArray = json_encode($resultArray);
+    ?>
+
  <!-- Now Playing -->
  <section id="nowPlayingBarContainer">
      <div id="nowPlayingBar">
@@ -79,7 +93,7 @@
 
              </div>
          </div>
-
+         <!-- Right-Side Volume Bar -->
          <div id="nowPlayingRight">
              <div class="volumeBar">
                  <button class="controlBtn volume" title="Volume button">
