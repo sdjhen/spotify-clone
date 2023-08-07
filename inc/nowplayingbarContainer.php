@@ -12,6 +12,23 @@
     $jsonArray = json_encode($resultArray);
     ?>
 
+ <script>
+     // Execute script only when page is ready
+     $(document).ready(function() {
+         currentPlaylist = <?php echo $jsonArray; ?>;
+         audioEl = new Audio();
+         setTrack(currentPlaylist[0], currentPlaylist, false);
+     });
+
+     // Function to set track
+     function setTrack(trackID, newPlaylist, play) {
+         $('.play').click(function() {
+             audioEl.setTrack('assets/music/my-universe-147152.mp3');
+             audioEl.audio.play();
+         });
+     }
+ </script>
+
  <!-- Now Playing -->
  <section id="nowPlayingBarContainer">
      <div id="nowPlayingBar">
