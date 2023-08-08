@@ -18,12 +18,15 @@
 
      // Function to play song
      function playSong() {
-         audioElement.setTrack('assets/music/my-universe-147152.mp3');
+         $(".controlBtn.play").hide()
+         $(".controlBtn.pause").show()
          audioElement.play();
      }
 
      // Function to pause song
      function pauseSong() {
+         $(".controlBtn.pause").hide()
+         $(".controlBtn.play").show()
          audioElement.pause();
      }
 
