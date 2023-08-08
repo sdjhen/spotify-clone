@@ -13,24 +13,36 @@
     ?>
 
  <script>
+     // Create an instance of the Audio class
+     audioElement = new Audio();
+
      // Execute script only when page is ready
      $(document).ready(function() {
          currentPlaylist = <?php echo $jsonArray; ?>;
-         audioEl = new Audio();
          setTrack(currentPlaylist[0], currentPlaylist, true);
      });
 
      // Function to set track
      function setTrack(trackID, newPlaylist, play) {
          $('.play').click(function() {
-             audioEl.setTrack('assets/music/my-universe-147152.mp3');
-
-             if (play == true) {
-                 audioEl.audio.play();
+             audioElement.setTrack('assets/music/my-universe-147152.mp3');
+             if (play === true) {
+                 audioElement.audio.play();
              }
+         });
+
+         $('.pause').click(function() {
+             audioElement.audio.pause();
          });
      }
  </script>
+
+
+
+
+
+
+
 
  <!-- Now Playing -->
  <section id="nowPlayingBarContainer">

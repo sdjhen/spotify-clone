@@ -1,6 +1,6 @@
 // Set tracks
 let currentPlaylist = [];
-let audioEl;
+let audioElement;
 
 // Audio Player
 class Audio {
@@ -8,7 +8,16 @@ class Audio {
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
   }
+
   setTrack(src) {
     this.audio.src = src;
+  }
+
+  play() {
+    this.audio.play();
+  }
+
+  pause() {
+    this.audio.pause();
   }
 }
