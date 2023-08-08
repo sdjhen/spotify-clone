@@ -16,6 +16,17 @@
      // Create an instance of the Audio class
      audioElement = new Audio();
 
+     // Function to play song
+     function playSong() {
+         audioElement.setTrack('assets/music/my-universe-147152.mp3');
+         audioElement.play();
+     }
+
+     // Function to pause song
+     function pauseSong() {
+         audioElement.pause();
+     }
+
      // Execute script only when page is ready
      $(document).ready(function() {
          currentPlaylist = <?php echo $jsonArray; ?>;
@@ -24,25 +35,12 @@
 
      // Function to set track
      function setTrack(trackID, newPlaylist, play) {
-         $('.play').click(function() {
-             audioElement.setTrack('assets/music/my-universe-147152.mp3');
-             if (play === true) {
-                 audioElement.audio.play();
-             }
-         });
-
-         $('.pause').click(function() {
-             audioElement.audio.pause();
-         });
+         audioElement.setTrack('assets/music/my-universe-147152.mp3');
+         if (play === true) {
+             audioElement.play();
+         }
      }
  </script>
-
-
-
-
-
-
-
 
  <!-- Now Playing -->
  <section id="nowPlayingBarContainer">
@@ -86,13 +84,13 @@
                          </span>
                      </button>
 
-                     <button class="controlBtn play" title="Play button">
+                     <button class="controlBtn play" title="Play button" onclick="playSong()">
                          <span class="material-symbols-outlined audioIcon">
                              play_circle
                          </span>
                      </button>
 
-                     <button class="controlBtn pause" title="Pause button" style="display: none;">
+                     <button class="controlBtn pause" title="Pause button" style="display: none;" onclick="pauseSong()">
                          <span class="material-symbols-outlined audioIcon">
                              pause
                          </span>
