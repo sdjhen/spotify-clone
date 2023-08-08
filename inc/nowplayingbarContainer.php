@@ -38,7 +38,12 @@
 
      // Function to set track
      function setTrack(trackID, newPlaylist, play) {
-         audioElement.setTrack('assets/music/my-universe-147152.mp3');
+         // AJAX call to retrieve song from DB
+         $.post("inc/handlers/Ajax/getSongJSON.php", {
+             songID: trackID
+         }, function(data) {
+             console.log(data);
+         })
          if (play === true) {
              audioElement.play();
          }
