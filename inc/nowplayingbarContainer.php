@@ -36,17 +36,21 @@
          setTrack(currentPlaylist[0], currentPlaylist, true);
      });
 
-     // Function to set track
      function setTrack(trackID, newPlaylist, play) {
          // AJAX call to retrieve song from DB
          $.post("inc/handlers/Ajax/getSongJSON.php", {
              songID: trackID
          }, function(data) {
-             console.log(data);
-         })
-         if (play === true) {
-             audioElement.play();
-         }
+
+             // Convert response data into object
+             const track = JSON.parse(data)
+             // Use to set track & play song
+             console.log(track);
+             audioElement.setTrack(track.path);
+             if (play === true) {
+                 audioElement.play();
+             }
+         });
      }
  </script>
 
