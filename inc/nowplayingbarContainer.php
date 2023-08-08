@@ -77,7 +77,6 @@
 
              })
 
-
              // Use to set track & play song
              audioElement.setTrack(track);
              playSong()
