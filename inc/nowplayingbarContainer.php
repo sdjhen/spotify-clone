@@ -44,8 +44,34 @@
 
              // Convert response data into object
              const track = JSON.parse(data)
+             //  console.log(track);
+
+             // Output Track name
+             $(".trackName span").text(track.title);
+
+             // AJAX call to retrieve artist from DB
+             $.post("inc/handlers/Ajax/getArtistJSON.php", {
+                 artistID: track.artist
+             }, function(data) {
+                 const artist = JSON.parse(data)
+
+                 // Output Track name
+                 $(".artistName span").text(artist.name);
+             });
+
+             // AJAX call to retrieve album artwork from DB
+             $.post("inc/handlers/Ajax/getAlbumJSON.php", {
+                 albumID: track.album
+             }, function(data) {
+                 const album = JSON.parse(data)
+
+                 // Output Album artwork
+                 $(".albumLink img").attr("src", album.artworkPath);
+
+             })
+
+
              // Use to set track & play song
-             console.log(track);
              audioElement.setTrack(track.path);
              if (play === true) {
                  audioElement.play();
@@ -61,17 +87,20 @@
          <div id="nowPlayingLeft">
              <div class="content">
                  <span class="albumLink">
-                     <img src="/" class="albumArtwork">
+                     <img src="" class="albumArtwork" style=" height: 100% !important;
+    max-width: 57px !important;
+    margin-right: 15px !important;
+    float: left !important;">
                  </span>
                  <!-- Track Info Labels -->
                  <div class="trackInfo">
 
                      <span class="trackName">
-                         <span>Right here</span>
+                         <span></span>
                      </span>
 
                      <span class="artistName">
-                         <span>Sam Hendry</span>
+                         <span></span>
                      </span>
 
                  </div>

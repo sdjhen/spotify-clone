@@ -61,7 +61,6 @@ padding: 10px 0;
 
 .navItemLink:hover {
     color: #fff;
-
 }
 
 /* Search Bar Styling */
@@ -83,8 +82,7 @@ padding: 10px 0;
     bottom: 0;
     position: fixed;
     min-width: 620px;
-  
-    }
+   }
 
 /* Playing Bar Styling */
 
