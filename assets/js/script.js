@@ -9,8 +9,9 @@ class Audio {
     this.audio = document.createElement('audio');
   }
 
-  setTrack(src) {
-    this.audio.src = src;
+  setTrack(track) {
+    this.currentlyPlaying = track;
+    this.audio.src = track.path;
   }
 
   play() {

@@ -16,8 +16,15 @@
      // Create an instance of the Audio class
      audioElement = new Audio();
 
-     // Function to play song
      function playSong() {
+         // Update play count
+         if (audioElement.audio.currentTime == 0) {
+             // AJAX call to update play count
+             $.post("inc/handlers/Ajax/updatePlays.php", {
+                 songID: audioElement.currentlyPlaying.id
+             });
+         }
+
          $(".controlBtn.play").hide()
          $(".controlBtn.pause").show()
          audioElement.play();
@@ -72,11 +79,13 @@
 
 
              // Use to set track & play song
-             audioElement.setTrack(track.path);
-             if (play === true) {
-                 audioElement.play();
-             }
+             audioElement.setTrack(track);
+             playSong()
          });
+
+         if (play === true) {
+             audioElement.play();
+         }
      }
  </script>
 
