@@ -41,7 +41,33 @@
      $(document).ready(function() {
          currentPlaylist = <?php echo $jsonArray; ?>;
          setTrack(currentPlaylist[0], currentPlaylist, true);
+
+         $(".playbackBar .progressBar").mousedown(function() {
+             mouseDown = true;
+         })
+         $(".playbackBar .progressBar").mousemove(function(e) {
+             if (mouseDown == true) {
+                 // Set time of song, depending on position of mouse
+                 timeFromOffset(e, this)
+             }
+         })
+         $(".playbackBar .progressBar").mouseup(function(e) {
+             timeFromOffset(e, this)
+         })
+
+         $(document).mouseup(function() {
+             mouseDown = false;
+         })
+
      });
+
+
+
+     function timeFromOffset(mouse, progressBar) {
+         const percentage = (mouse.offsetX / $(progressBar).width()) * 100;
+         const seconds = audioElement.audio.duration * (percentage / 100);
+         audioElement.setTime(seconds);
+     }
 
      function setTrack(trackID, newPlaylist, play) {
          // AJAX call to retrieve song from DB

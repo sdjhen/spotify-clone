@@ -1,12 +1,12 @@
 // Set tracks
 let currentPlaylist = [];
 let audioElement;
+let mouseDown = false; // Drag progress bar
 
 const formatTime = (seconds) => {
   const roundedSeconds = Math.round(seconds);
   const minutes = Math.floor(roundedSeconds / 60); // Rounds down
   const remainingSeconds = roundedSeconds - minutes * 60;
-
   const formattedSeconds =
     remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds;
 
@@ -56,5 +56,9 @@ class Audio {
 
   pause() {
     this.audio.pause();
+  }
+
+  setTime(seconds) {
+    this.audio.currentTime = seconds;
   }
 }
