@@ -41,7 +41,13 @@
      $(document).ready(function() {
          currentPlaylist = <?php echo $jsonArray; ?>;
          setTrack(currentPlaylist[0], currentPlaylist, false);
-         updateVolumeProgressBar(this);
+         updateVolumeProgressBar(audioElement.audio);
+
+         // Prevent audio btns highligthing when dragging progress bar
+         $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+             e.preventDefault()
+         })
+
 
          $(".playbackBar .progressBar").mousedown(function() {
              mouseDown = true;
