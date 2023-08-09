@@ -15,6 +15,13 @@ const formatTime = (seconds) => {
 
 const updateTimeProgressBar = (audio) => {
   $('.progressTime.current').text(formatTime(audio.currentTime));
+  $('.progressTime.remaining').text(
+    formatTime(audio.duration - audio.currentTime)
+  );
+  // Calculate % of song remaining
+  const progress = (audio.currentTime / audio.duration) * 100;
+  // Fill progress bar as % of song played
+  $('.playbackBar .progress').css('width', progress + `%`);
 };
 
 // Audio Player
@@ -26,11 +33,11 @@ class Audio {
     this.audio.addEventListener('canplay', function () {
       // 'this' refers to the object that the event was called on (audio)
       const duration = formatTime(this.duration);
+      // Progress time as song plays (second by second)
       $('.progressTime.remaining').text(duration);
     });
 
     this.audio.addEventListener('timeupdate', function () {
-      // console.log('timeupdate event triggered');
       if (this.duration) {
         updateTimeProgressBar(this);
       }
@@ -42,6 +49,7 @@ class Audio {
     this.audio.src = track.path;
   }
 
+  // Audio control functions
   play() {
     this.audio.play();
   }
