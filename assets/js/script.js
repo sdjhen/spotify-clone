@@ -24,6 +24,12 @@ const updateTimeProgressBar = (audio) => {
   $('.playbackBar .progress').css('width', progress + `%`);
 };
 
+const updateVolumeProgressBar = (audio) => {
+  const volume = audio.volume * 100;
+  // Fill progress bar to increase song volume
+  $('.volumeBar .progress').css('width', volume + `%`);
+};
+
 // Audio Player
 class Audio {
   constructor() {
@@ -41,6 +47,10 @@ class Audio {
       if (this.duration) {
         updateTimeProgressBar(this);
       }
+    });
+
+    this.audio.addEventListener('volumechange', function () {
+      updateVolumeProgressBar(this);
     });
   }
 

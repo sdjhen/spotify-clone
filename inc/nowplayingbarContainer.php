@@ -40,7 +40,8 @@
      // Execute script only when page is ready
      $(document).ready(function() {
          currentPlaylist = <?php echo $jsonArray; ?>;
-         setTrack(currentPlaylist[0], currentPlaylist, true);
+         setTrack(currentPlaylist[0], currentPlaylist, false);
+         updateVolumeProgressBar(this);
 
          $(".playbackBar .progressBar").mousedown(function() {
              mouseDown = true;
@@ -55,13 +56,27 @@
              timeFromOffset(e, this)
          })
 
+         // Volume Bar control
+         $(".volumeBar .progressBar").mousedown(function() {
+             mouseDown = true;
+         })
+         $(".volumeBar .progressBar").mousemove(function(e) {
+             if (mouseDown == true) {
+                 // Set volume of song, depending on position of mouse
+                 const volumePecentage = e.offsetX / $(this).width()
+                 audioElement.audio.volume = volumePecentage
+             }
+         })
+         $(".volumeBar .progressBar").mouseup(function(e) {
+             const volumePecentage = e.offsetX / $(this).width()
+             audioElement.audio.volume = volumePecentage
+         })
+
          $(document).mouseup(function() {
              mouseDown = false;
          })
 
      });
-
-
 
      function timeFromOffset(mouse, progressBar) {
          const percentage = (mouse.offsetX / $(progressBar).width()) * 100;
@@ -200,7 +215,7 @@
          <!-- Right-Side Volume Bar -->
          <div id="nowPlayingRight">
              <div class="volumeBar">
-                 <button class="controlBtn volume" title="Volume button">
+                 <button class="controlBtn volume" title="Volume button" style="margin-bottom: 9px;">
                      <span class="material-symbols-outlined audioIcon">
                          volume_up
                      </span>
