@@ -13,6 +13,10 @@ const formatTime = (seconds) => {
   return `${minutes}:${formattedSeconds}`;
 };
 
+const updateTimeProgressBar = (audio) => {
+  $('.progressTime.current').text(formatTime(audio.currentTime));
+};
+
 // Audio Player
 class Audio {
   constructor() {
@@ -23,6 +27,13 @@ class Audio {
       // 'this' refers to the object that the event was called on (audio)
       const duration = formatTime(this.duration);
       $('.progressTime.remaining').text(duration);
+    });
+
+    this.audio.addEventListener('timeupdate', function () {
+      // console.log('timeupdate event triggered');
+      if (this.duration) {
+        updateTimeProgressBar(this);
+      }
     });
   }
 
