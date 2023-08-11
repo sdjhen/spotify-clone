@@ -90,6 +90,15 @@
          audioElement.setTime(seconds);
      }
 
+     function prevSong() {
+         if (audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+             audioElement.setTime(0)
+         } else {
+             currentIndex--;
+             setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+         }
+     }
+
      function nextSong() {
          if (repeat) {
              // If repeat is enabled, replay the current song
@@ -136,9 +145,6 @@
          // Stop the song from repeating
          repeat = false;
      });
-
-
-
 
      function setTrack(trackID, newPlaylist, play) {
 
@@ -228,7 +234,7 @@
                          </span>
                      </button>
 
-                     <button class="controlBtn previous" title="Previous button">
+                     <button class="controlBtn previous" title="Previous button" onclick="prevSong()">
                          <span class="material-symbols-outlined audioIcon">
                              skip_previous
                          </span>
@@ -260,17 +266,11 @@
 
                      <button class="controlBtn repeat-active" title="Repeat button active" style="display: none;">
                          <span class="material-symbols-outlined" style="    color: #28a745 !important;
-">
+                                                    ">
                              repeat_one
                          </span>
                      </button>
-
-
-
                  </div>
-
-
-
 
                  <div class="playbackBar">
                      <span class="progressTime current">0.00</span>
