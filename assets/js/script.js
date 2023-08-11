@@ -2,6 +2,8 @@
 let currentPlaylist = [];
 let audioElement;
 let mouseDown = false; // Drag progress bar
+let currentIndex = 0;
+let repeat = false;
 
 const formatTime = (seconds) => {
   const roundedSeconds = Math.round(seconds);

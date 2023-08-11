@@ -90,7 +90,45 @@
          audioElement.setTime(seconds);
      }
 
+     function nextSong() {
+         if (repeat) {
+             // If repeat is enabled, replay the current song
+             audioElement.setTime(0);
+             playSong();
+             return;
+         }
+
+         if (currentIndex == currentPlaylist.length - 1) {
+             currentIndex = 0;
+         } else {
+             currentIndex++;
+         }
+
+         const trackToPlay = currentPlaylist[currentIndex];
+         setTrack(trackToPlay, currentPlaylist, true);
+     }
+
+     function setRepeat() {
+         repeat = !repeat;
+         const repeatButton = $('.controlBtn.repeat');
+
+         if (repeat) {
+             repeatButton.addClass('active');
+         } else {
+             repeatButton.removeClass('active');
+         }
+     }
+
+     // Attach the function to the repeat button
+     $(".controlBtn.repeat").click(function() {
+         setRepeat();
+     });
+
      function setTrack(trackID, newPlaylist, play) {
+
+         currentIndex = currentPlaylist.indexOf(trackID)
+         pauseSong()
+
          // AJAX call to retrieve song from DB
          $.post("inc/handlers/Ajax/getSongJSON.php", {
              songID: trackID
@@ -192,13 +230,13 @@
                          </span>
                      </button>
 
-                     <button class="controlBtn next" title="Next button">
+                     <button class="controlBtn next" title="Next button" onclick="nextSong()">
                          <span class="material-symbols-outlined audioIcon">
                              skip_next
                          </span>
                      </button>
 
-                     <button class="controlBtn repeat" title="Repeat button">
+                     <button class="controlBtn repeat" title="Repeat button" onclick="setRepeat()">
                          <span class="material-symbols-outlined audioIcon">
                              replay
                          </span>
