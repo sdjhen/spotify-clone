@@ -111,11 +111,12 @@
      function setRepeat() {
          repeat = !repeat;
          const repeatButton = $('.controlBtn.repeat');
+         const repeatActiveButton = $('.controlBtn.repeat-active');
 
          if (repeat) {
-             repeatButton.addClass('active');
+             repeatActiveButton.show();
          } else {
-             repeatButton.removeClass('active');
+             repeatActiveButton.hide();
          }
      }
 
@@ -123,6 +124,21 @@
      $(".controlBtn.repeat").click(function() {
          setRepeat();
      });
+
+     // Attach the function to the repeat-active button
+     $(".controlBtn.repeat-active").click(function() {
+         setRepeat();
+
+         // Hide repeat-active icon and show repeat icon
+         $(".controlBtn.repeat").show();
+         $(".controlBtn.repeat-active").hide();
+
+         // Stop the song from repeating
+         repeat = false;
+     });
+
+
+
 
      function setTrack(trackID, newPlaylist, play) {
 
@@ -241,7 +257,19 @@
                              replay
                          </span>
                      </button>
+
+                     <button class="controlBtn repeat-active" title="Repeat button active" style="display: none;">
+                         <span class="material-symbols-outlined" style="    color: #28a745 !important;
+">
+                             repeat_one
+                         </span>
+                     </button>
+
+
+
                  </div>
+
+
 
 
                  <div class="playbackBar">
