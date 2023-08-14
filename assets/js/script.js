@@ -1,5 +1,6 @@
 // Set tracks
 let currentPlaylist = [];
+let shufflePlaylist = [];
 let audioElement;
 let mouseDown = false; // Drag progress bar
 let currentIndex = 0;

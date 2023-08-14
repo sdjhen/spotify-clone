@@ -137,7 +137,18 @@
          muteButton.hide();
      }
 
+     function shuffleArray(arr) {
+         for (let i = arr.length - 1; i > 0; i--) {
+             const j = Math.floor(Math.random() * (i + 1));
+             [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+         }
+         return arr;
+     }
+
      function setShuffle() {
+
+         shuffle = !shuffle
+
          const shuffleButton = $('.controlBtn.shuffle');
          const shuffleButtonOn = $('.controlBtn.shuffle-on');
 
@@ -151,6 +162,15 @@
              shuffleButton.hide();
              shuffleButtonOn.show();
          }
+
+         if (shuffle) {
+             // Randomise playlist
+             shuffleArray(shufflePlaylist)
+
+         } else {
+             // Revert to regular playlist
+         }
+
      }
 
      function unShuffle() {
@@ -159,6 +179,8 @@
 
          shuffleButton.show();
          shuffleButtonOn.hide();
+
+         shuffle = false
      }
 
      function setRepeat() {
@@ -192,6 +214,11 @@
 
      function setTrack(trackID, newPlaylist, play) {
 
+         if (newPlaylist != currentPlaylist) {
+             currentPlaylist = newPlaylist
+             shufflePlaylist = currentPlaylist.slice()
+             shuffleArray(shufflePlaylist)
+         }
          currentIndex = currentPlaylist.indexOf(trackID)
          pauseSong()
 
