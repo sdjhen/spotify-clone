@@ -117,6 +117,26 @@
          setTrack(trackToPlay, currentPlaylist, true);
      }
 
+     function setMute() {
+         const volumeButton = $('.controlBtn.volume');
+         const muteButton = $('.controlBtn.mute');
+
+         audioElement.audio.muted = true;
+
+         volumeButton.hide();
+         muteButton.show();
+     }
+
+     function unMute() {
+         const volumeButton = $('.controlBtn.volume');
+         const muteButton = $('.controlBtn.mute');
+
+         audioElement.audio.muted = false;
+
+         volumeButton.show();
+         muteButton.hide();
+     }
+
      function setRepeat() {
          repeat = !repeat;
          const repeatButton = $('.controlBtn.repeat');
@@ -287,13 +307,19 @@
          <!-- Right-Side Volume Bar -->
          <div id="nowPlayingRight">
              <div class="volumeBar">
-                 <button class="controlBtn volume" title="Volume button" style="margin-bottom: 9px;">
+                 <button class="controlBtn volume" title="Volume button" style="margin-bottom: 9px;" onclick="setMute()">
                      <span class="material-symbols-outlined audioIcon">
                          volume_up
                      </span>
                  </button>
+                 <button class="controlBtn mute" title="Mute button" style="margin-bottom: 9px; display: none" onclick="unMute()">
+                     <span class="material-symbols-outlined audioIcon">
+                         volume_mute
+                     </span>
+                 </button>
+
                  <!-- End of Audio Control Buttons -->
-                 <div class="progressBar">
+                 <div class="progressBar" style="position: relative;">
                      <div class="progressBarBg">
                          <div class="progress"></div>
                      </div>
