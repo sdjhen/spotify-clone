@@ -137,6 +137,30 @@
          muteButton.hide();
      }
 
+     function setShuffle() {
+         const shuffleButton = $('.controlBtn.shuffle');
+         const shuffleButtonOn = $('.controlBtn.shuffle-on');
+
+         // Check if shuffle-on button is visible
+         const isShuffleOn = shuffleButtonOn.is(":visible");
+
+         if (isShuffleOn) {
+             shuffleButton.show();
+             shuffleButtonOn.hide();
+         } else {
+             shuffleButton.hide();
+             shuffleButtonOn.show();
+         }
+     }
+
+     function unShuffle() {
+         const shuffleButton = $('.controlBtn.shuffle');
+         const shuffleButtonOn = $('.controlBtn.shuffle-on');
+
+         shuffleButton.show();
+         shuffleButtonOn.hide();
+     }
+
      function setRepeat() {
          repeat = !repeat;
          const repeatButton = $('.controlBtn.repeat');
@@ -249,8 +273,14 @@
                  <div class="buttons">
                      <!-- Audio Control Buttons -->
                      <button class="controlBtn shuffle" title="Shuffle button">
-                         <span class="material-symbols-outlined audioIcon">
+                         <span class="material-symbols-outlined audioIcon" onclick="setShuffle()">
                              shuffle
+                         </span>
+                     </button>
+
+                     <button class="controlBtn shuffle-on" title="Shuffle button on" style="display: none;" onclick="unShuffle()">
+                         <span class="material-symbols-outlined audioIcon">
+                             shuffle_on
                          </span>
                      </button>
 
