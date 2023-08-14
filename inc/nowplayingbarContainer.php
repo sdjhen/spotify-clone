@@ -39,8 +39,8 @@
 
      // Execute script only when page is ready
      $(document).ready(function() {
-         currentPlaylist = <?php echo $jsonArray; ?>;
-         setTrack(currentPlaylist[0], currentPlaylist, false);
+         const newPlaylist = <?php echo $jsonArray; ?>;
+         setTrack(newPlaylist[0], newPlaylist, false);
          updateVolumeProgressBar(audioElement.audio);
 
          // Prevent audio btns highligthing when dragging progress bar
@@ -81,7 +81,6 @@
          $(document).mouseup(function() {
              mouseDown = false;
          })
-
      });
 
      function timeFromOffset(mouse, progressBar) {
@@ -113,7 +112,7 @@
              currentIndex++;
          }
 
-         const trackToPlay = currentPlaylist[currentIndex];
+         const trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
          setTrack(trackToPlay, currentPlaylist, true);
      }
 
@@ -146,9 +145,7 @@
      }
 
      function setShuffle() {
-
          shuffle = !shuffle
-
          const shuffleButton = $('.controlBtn.shuffle');
          const shuffleButtonOn = $('.controlBtn.shuffle-on');
 
@@ -166,11 +163,12 @@
          if (shuffle) {
              // Randomise playlist
              shuffleArray(shufflePlaylist)
+             currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id)
 
          } else {
              // Revert to regular playlist
+             currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id)
          }
-
      }
 
      function unShuffle() {
@@ -219,7 +217,12 @@
              shufflePlaylist = currentPlaylist.slice()
              shuffleArray(shufflePlaylist)
          }
-         currentIndex = currentPlaylist.indexOf(trackID)
+
+         if (shuffle) {
+             currentIndex = shufflePlaylist.indexOf(trackID)
+         } else {
+             currentIndex = currentPlaylist.indexOf(trackID)
+         }
          pauseSong()
 
          // AJAX call to retrieve song from DB
