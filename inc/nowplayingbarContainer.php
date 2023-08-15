@@ -39,59 +39,65 @@
 
      // Execute script only when page is ready
      $(document).ready(function() {
+         // Load playlist and initialize player
          const newPlaylist = <?php echo $jsonArray; ?>;
          setTrack(newPlaylist[0], newPlaylist, false);
          updateVolumeProgressBar(audioElement.audio);
 
          // Prevent audio btns highligthing when dragging progress bar
          $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
-             e.preventDefault()
-         })
-
+             e.preventDefault();
+         });
 
          $(".playbackBar .progressBar").mousedown(function() {
              mouseDown = true;
-         })
+         });
+
          $(".playbackBar .progressBar").mousemove(function(e) {
              if (mouseDown == true) {
                  // Set time of song, depending on position of mouse
-                 timeFromOffset(e, this)
+                 timeFromOffset(e, this);
              }
-         })
+         });
+
          $(".playbackBar .progressBar").mouseup(function(e) {
-             timeFromOffset(e, this)
-         })
+             timeFromOffset(e, this);
+         });
 
          // Volume Bar control
          $(".volumeBar .progressBar").mousedown(function() {
              mouseDown = true;
-         })
+         });
+
          $(".volumeBar .progressBar").mousemove(function(e) {
              if (mouseDown == true) {
                  // Set volume of song, depending on position of mouse
                  const volumePecentage = e.offsetX / $(this).width()
-                 audioElement.audio.volume = volumePecentage
+                 audioElement.audio.volume = volumePecentage;
              }
-         })
+         });
+
          $(".volumeBar .progressBar").mouseup(function(e) {
              const volumePecentage = e.offsetX / $(this).width()
-             audioElement.audio.volume = volumePecentage
-         })
+             audioElement.audio.volume = volumePecentage;
+         });
 
          $(document).mouseup(function() {
              mouseDown = false;
-         })
+         });
      });
 
      function timeFromOffset(mouse, progressBar) {
+         // Calculate time from mouse position in progress bar
          const percentage = (mouse.offsetX / $(progressBar).width()) * 100;
          const seconds = audioElement.audio.duration * (percentage / 100);
          audioElement.setTime(seconds);
      }
 
      function prevSong() {
+         // Previous song control
          if (audioElement.audio.currentTime >= 3 || currentIndex == 0) {
-             audioElement.setTime(0)
+             audioElement.setTime(0);
          } else {
              currentIndex--;
              setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
@@ -99,8 +105,8 @@
      }
 
      function nextSong() {
+         // Next song control
          if (repeat) {
-             // If repeat is enabled, replay the current song
              audioElement.setTime(0);
              playSong();
              return;
@@ -117,6 +123,7 @@
      }
 
      function setMute() {
+         // Mute function
          const volumeButton = $('.controlBtn.volume');
          const muteButton = $('.controlBtn.mute');
 
@@ -127,6 +134,7 @@
      }
 
      function unMute() {
+         // Unmute function
          const volumeButton = $('.controlBtn.volume');
          const muteButton = $('.controlBtn.mute');
 
@@ -137,6 +145,7 @@
      }
 
      function shuffleArray(arr) {
+         // Shuffle array function
          for (let i = arr.length - 1; i > 0; i--) {
              const j = Math.floor(Math.random() * (i + 1));
              [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
@@ -145,11 +154,11 @@
      }
 
      function setShuffle() {
+         // Toggle shuffle function
          shuffle = !shuffle
          const shuffleButton = $('.controlBtn.shuffle');
          const shuffleButtonOn = $('.controlBtn.shuffle-on');
 
-         // Check if shuffle-on button is visible
          const isShuffleOn = shuffleButtonOn.is(":visible");
 
          if (isShuffleOn) {
@@ -161,17 +170,15 @@
          }
 
          if (shuffle) {
-             // Randomise playlist
              shuffleArray(shufflePlaylist)
              currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id)
-
          } else {
-             // Revert to regular playlist
              currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id)
          }
      }
 
      function unShuffle() {
+         // Turn off shuffle function
          const shuffleButton = $('.controlBtn.shuffle');
          const shuffleButtonOn = $('.controlBtn.shuffle-on');
 
@@ -182,6 +189,7 @@
      }
 
      function setRepeat() {
+         // Toggle repeat function
          repeat = !repeat;
          const repeatButton = $('.controlBtn.repeat');
          const repeatActiveButton = $('.controlBtn.repeat-active');
@@ -202,20 +210,18 @@
      $(".controlBtn.repeat-active").click(function() {
          setRepeat();
 
-         // Hide repeat-active icon and show repeat icon
          $(".controlBtn.repeat").show();
          $(".controlBtn.repeat-active").hide();
 
-         // Stop the song from repeating
          repeat = false;
      });
 
      function setTrack(trackID, newPlaylist, play) {
-
+         // Set track from playlist
          if (newPlaylist != currentPlaylist) {
-             currentPlaylist = newPlaylist
-             shufflePlaylist = currentPlaylist.slice()
-             shuffleArray(shufflePlaylist)
+             currentPlaylist = newPlaylist;
+             shufflePlaylist = currentPlaylist.slice();
+             shuffleArray(shufflePlaylist);
          }
 
          if (shuffle) {
@@ -229,21 +235,15 @@
          $.post("inc/handlers/Ajax/getSongJSON.php", {
              songID: trackID
          }, function(data) {
-
              // Convert response data into object
-             const track = JSON.parse(data)
-             //  console.log(track);
-
-             // Output Track name
+             const track = JSON.parse(data);
              $(".trackName span").text(track.title);
 
              // AJAX call to retrieve artist from DB
              $.post("inc/handlers/Ajax/getArtistJSON.php", {
                  artistID: track.artist
              }, function(data) {
-                 const artist = JSON.parse(data)
-
-                 // Output Track name
+                 const artist = JSON.parse(data);
                  $(".artistName span").text(artist.name);
              });
 
@@ -251,21 +251,17 @@
              $.post("inc/handlers/Ajax/getAlbumJSON.php", {
                  albumID: track.album
              }, function(data) {
-                 const album = JSON.parse(data)
-
-                 // Output Album artwork
+                 const album = JSON.parse(data);
                  $(".albumLink img").attr("src", album.artworkPath);
+             });
 
-             })
-
-             // Use to set track & play song
+             // Set track and play song
              audioElement.setTrack(track);
-             //  playSong()
-         });
 
-         if (play === true) {
-             audioElement.play();
-         }
+             if (play === true) {
+                 playSong()
+             }
+         });
      }
  </script>
 
