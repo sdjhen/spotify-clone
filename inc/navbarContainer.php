@@ -2,7 +2,7 @@
  <div id="navbarContainer">
      <nav class="navbar">
          <!-- Logo -->
-         <span class="logo" onclick="openPage('index.php')">
+         <span role="link" tabindex="0" onclick="openPage('index.php')" class="logo">
              <img src="./assets/img/logo2.png" alt="logo">
          </span>
 
@@ -10,25 +10,25 @@
          <div class="group">
              <div class="navItem">
                  <!-- Search Bar -->
-                 <a href="search.php" class="navItemLink">Search
+                 <span role="link" tabindex="0" onclick='openPage("search.php")' class="navItemLink">Search
                      <span class="material-symbols-outlined icon">
                          search
                      </span>
-                 </a>
+                 </span>
              </div>
          </div>
 
          <div class="group">
              <div class="navItem">
-                 <a href="browse.php" class="navItemLink">Browse</a>
+                 <span role="link" tabindex="0" onclick="openPage('browse.php')" class="navItemLink">Browse</span>
              </div>
 
              <div class="navItem">
-                 <a href="music.php" class="navItemLink">Your Music</a>
+                 <span role="link" tabindex="0" onclick="openPage('yourMusic.php')" class="navItemLink">Your Music</span>
              </div>
 
              <div class="navItem">
-                 <a href="profile.php" class="navItemLink">Sam Hendry</a>
+                 <span role="link" tabindex="0" onclick="openPage('profile.php')" class="navItemLink">Sam Hendry</span>
              </div>
          </div>
      </nav>
