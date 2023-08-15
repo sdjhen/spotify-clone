@@ -2,7 +2,9 @@
  <div id="navbarContainer">
      <nav class="navbar">
          <!-- Logo -->
-         <img src="./assets/img/logo2.png" class="logo" alt="logo">
+         <span class="logo" onclick="openPage('index.php')">
+             <img src="./assets/img/logo2.png" alt="logo">
+         </span>
 
          <!-- Nav Menu Items -->
          <div class="group">

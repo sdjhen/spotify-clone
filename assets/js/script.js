@@ -9,6 +9,14 @@ let repeat = false;
 let shuffle = false;
 let userLoggedIn; // session variable
 
+const openPage = (url) => {
+  if (url.indexOf('?') == -1) {
+    url = url + '?';
+  }
+  let encodedURL = encodeURI(url + '&userLoggedIn=' + `${userLoggedIn}`);
+  $('#mainContent').load(encodedURL);
+};
+
 const formatTime = (seconds) => {
   const roundedSeconds = Math.round(seconds);
   const minutes = Math.floor(roundedSeconds / 60); // Rounds down
