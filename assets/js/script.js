@@ -7,6 +7,7 @@ let mouseDown = false; // Drag progress bar
 let currentIndex = 0;
 let repeat = false;
 let shuffle = false;
+let userLoggedIn; // session variable
 
 const formatTime = (seconds) => {
   const roundedSeconds = Math.round(seconds);

@@ -7,6 +7,11 @@ include("inc/classes/Song.php");
 // Set session variable
 if (isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = $_SESSION['userLoggedIn'];
+    echo <<<EOT
+    <script>
+    userLoggedIn = '$userLoggedIn';
+    </script>
+EOT;
 } else {
     // Redirect to registration page if not set
     header("Location: register.php");

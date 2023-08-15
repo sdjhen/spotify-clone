@@ -66,16 +66,10 @@ $artist = $album->getArtist();
             <script>
                 const tempSongIDs = '<?php echo json_encode($songIDArray); ?>';
                 tempPlaylist = JSON.parse(tempSongIDs)
-                console.log(tempPlaylist);
             </script>
-
-
 
         </ul>
     </div>
-
-
-
 </div>
 
 <?php include("inc/footer.php"); ?>
