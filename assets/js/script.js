@@ -47,6 +47,10 @@ const updateVolumeProgressBar = (audio) => {
   $('.volumeBar .progress').css('width', volume + `%`);
 };
 
+const playFirstSong = () => {
+  setTrack(tempPlaylist[0], tempPlaylist, true);
+};
+
 // Audio Player
 class Audio {
   constructor() {
