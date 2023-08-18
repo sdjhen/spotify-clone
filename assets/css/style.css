@@ -477,3 +477,28 @@ padding: 40px 0 10px 0;
     cursor: pointer;
 }
 
+/* Search Page Styling */
+
+.searchContainer {
+    background-color: #242424;
+    padding: 20px 20px;
+}
+
+.searchContainer h4 {
+    margin: 0;
+    font-weight: 300;
+}
+
+.searchContainer .SearchInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: 2px;
+}
+
+input:focus {
+    outline: none;
+}
