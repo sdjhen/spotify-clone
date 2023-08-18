@@ -245,6 +245,7 @@
              }, function(data) {
                  const artist = JSON.parse(data);
                  $(".artistName span").text(artist.name);
+                 $(".artistName span").attr("onclick", "openPage('artist.php?id=" + artist.id + "')");
              });
 
              // AJAX call to retrieve album artwork from DB
@@ -253,6 +254,8 @@
              }, function(data) {
                  const album = JSON.parse(data);
                  $(".albumLink img").attr("src", album.artworkPath);
+                 $(".albumLink img").attr("onclick", "openPage('album.php?id=" + album.id + "')");
+                 $(".trackName span").attr("onclick", "openPage('album.php?id=" + album.id + "')");
              });
 
              // Set track and play song
@@ -272,7 +275,7 @@
          <div id="nowPlayingLeft">
              <div class="content">
                  <span class="albumLink">
-                     <img src="" class="albumArtwork" style=" height: 100% !important;
+                     <img src="" class="albumArtwork" role="link" tabindex="0" style=" height: 100% !important;
     max-width: 57px !important;
     margin-right: 15px !important;
     float: left !important;">
@@ -281,11 +284,11 @@
                  <div class="trackInfo">
 
                      <span class="trackName">
-                         <span></span>
+                         <span role="link" tabindex="0"></span>
                      </span>
 
                      <span class="artistName">
-                         <span></span>
+                         <span role="link" tabindex="0"></span>
                      </span>
 
                  </div>
