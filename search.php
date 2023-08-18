@@ -20,7 +20,6 @@ if (isset($_GET['term'])) {
 
         $(".searchInput").focus() // Focus input to prevent accidental timeout
 
-        let timer;
         // Reset timer until user stops typing
         $(".searchInput").keyup(function() {
             clearTimeout(timer)
@@ -32,6 +31,8 @@ if (isset($_GET['term'])) {
         })
     })
 </script>
+
+<?php if ($term == "") exit() ?>
 
 <div class="tracklistContainer BorderBottom">
     <h2 style="text-align: center;">SONGS</h2>
@@ -92,4 +93,62 @@ if (isset($_GET['term'])) {
         </script>
 
     </ul>
+</div>
+
+<!-- Artist Search Results -->
+<div class="artistContainer borderBottom">
+    <h2 style="text-align: center;">ARTISTS</h2>
+
+    <?php
+    $artistQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
+
+    if (mysqli_num_rows($artistQuery) == 0) {
+        echo "<span class='noResults'> No results found matching " . $term . "</span> ";
+    }
+
+    while ($row = mysqli_fetch_array($artistQuery)) {
+        $artist_found = new Artist($con, $row['id']);
+
+        echo "<div class='searchResultRow'>
+            <div class='artistName>
+            
+            <span role='link tabindex='0' onclick='openPage(\"artist.php?id=" . $artist_found->getID() . " \")'>
+             "
+            . $artist_found->getName() .
+            "
+            </span>
+
+            </div>
+            </div>";
+    }
+
+    ?>
+
+
+
+</div>
+
+<div class="gridViewContainer album-item">
+    <h2>ALBUMS</h2>
+
+    <?php
+
+    $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE title LIKE '$term%' LIMIT 10");
+
+    // Loop through album DB table & output values
+    while ($row = mysqli_fetch_array($albumQuery)) {
+        echo "<div class='gridViewItem'>
+                 <span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+            <img src='" . $row['artworkPath'] . "'>
+            <div class='gridViewInfo'>" . $row['title'] .
+            "</div>
+                </span>
+            </div>";
+    }
+
+    if (mysqli_num_rows($albumQuery) == 0) {
+        echo "<span class='noResults'> No results found matching " . $term . "</span> ";
+    }
+
+    ?>
 </div>

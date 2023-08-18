@@ -8,8 +8,13 @@ let currentIndex = 0;
 let repeat = false;
 let shuffle = false;
 let userLoggedIn; // session variable
+let timer; // Search page timer
 
 const openPage = (url) => {
+  if (timer != null) {
+    clearTimeout(timer);
+  }
+
   if (url.indexOf('?') == -1) {
     url = url + '?';
   }

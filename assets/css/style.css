@@ -502,3 +502,22 @@ padding: 40px 0 10px 0;
 input:focus {
     outline: none;
 }
+
+/* Artist Search Result Styling */
+
+.searchResultRow {
+    padding: 15px 10px;
+}
+
+.searchResultRow:hover {
+    background-color: #282828;
+}
+
+.searchResultRow .artistName span {
+    color: #fff;
+}
+
+.noResults {
+    margin: 15px;
+    display: block;
+}
