@@ -521,3 +521,16 @@ input:focus {
     margin: 15px;
     display: block;
 }
+
+/* Playlist Page Styling */
+
+.buttonItems.pl-Btn {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    left: 0;
+    right: 0;
+    width: 175px;
+   
+}
