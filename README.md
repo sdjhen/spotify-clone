@@ -11,9 +11,10 @@
 - [Discover Music](#discover-music)
 - [Installation](#installation)
 - [Usage](#usage)
-- [screenshots](#screenshots)
+- [Screenshots](#screenshots)
 - [Tech Stack](#tech-stack)
 - [Contribute](#contribute)
+- [Future Development](#future-development)
 - [License](#license)
 
 ## Discover Music
@@ -26,7 +27,7 @@ Unleash the power of Samify to explore, play, and curate your music journey:
 
 - Intelligent Recommendations: Elevate your music exploration with tailored recommendations. Discover new tracks that resonate with your unique taste.
 
-- Responsive Design: Whether on your computer, tablet, or smartphone, MyMusicApp ensures a consistent and optimised interface for your device.
+- Responsive Design: Whether on your computer, tablet, or smartphone, Samify ensures a consistent and optimised interface for your device.
 
 ## Installation
 
@@ -35,9 +36,7 @@ Experience the rhythm of Samify on your local environment:
 1. Clone the Repository: Clone repository to your local machine using Git.
 
 ```
-git clone
-git@github.com:sdjhen/spotify-clone.git
-
+ git clone git@github.com:sdjhen/spotify-clone.git
 ```
 
 2. Ensure your operating system has PHP, a web server such as Apache and MySQL installed for local developement.
@@ -60,7 +59,7 @@ For setting up a local development environment, downloading a software suite suc
 
 ## Screenshots
 
-## Tech-stack
+## Tech Stack
 
 Discover the technologies that orchestrate Samify's symphony:
 
