@@ -40,7 +40,7 @@ git@github.com:sdjhen/spotify-clone.git
 
 ```
 
-2. For setting up local development environment, downloading a software suite such as XAMPP can be useful. Ensure your operating system has PHP, a web server such as Apache and MySQL installed for local developement.
+2. Ensure your operating system has PHP, a web server such as Apache and MySQL installed for local developement.
 
 3. Database Setup: Import the provided SQL schema and data into your MySQL Server database.
 
