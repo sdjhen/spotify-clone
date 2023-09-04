@@ -27,7 +27,7 @@ Unleash the power of Samify to explore, play, and curate your music journey:
 
 - Intelligent Recommendations: Elevate your music exploration with tailored recommendations. Discover new tracks that resonate with your unique taste.
 
-- Responsive Design: Whether on your computer, tablet, or smartphone, Samify ensures a consistent and optimised interface for your device.
+- Responsive Design: Whether on your computer, tablet, or smartphone, Samify  ensures a consistent and optimised interface for your device.
 
 ## Installation
 
@@ -53,7 +53,7 @@ For setting up a local development environment, downloading a software suite suc
 
 1. Register and Log In: Begin your musical journey by creating an account or logging in with your credentials.
 
-2. Explore and Discover: Dive into a world of music. Explore our library, search for tracks, and uncover hidden gems with our immersive seach functionality.
+2. Explore and Discover: Dive into a world of music. Explore our library, search for tracks, and uncover hidden gems with our immersive search functionality.
 
 3. Elevate Your Experience: Stream your chosen tracks with elegance. Fine-tune your listening experience with playback controls.
 
@@ -88,3 +88,7 @@ Harmonise with us by contributing to Samify's growth and enhancement. Your insig
 2. Refine & Commit: Polish your changes and commit them with informative messages.
 
 3. Harmonious Merge: Push your changes to your forked repository and create a pull request for review.
+
+# License
+
+Please refer to the LICENSE in the repo.

@@ -19,4 +19,26 @@ include("inc/includedFiles.php");
     width: 175px;">NEW PLAYLIST</button>
         </div>
     </div>
+
+    <?php
+    $username = $userLoggedIn->getUserName();
+
+    $playlistsQuery = mysqli_query($con, "SELECT * FROM playlists  WHERE owner='$username' ");
+
+    if (mysqli_num_rows($playlistsQuery) == 0) {
+        echo "<span class='noResults'>No playlists found</span>";
+    }
+
+    while ($row = mysqli_fetch_array($playlistsQuery)) {
+        echo "<div class='gridViewItem'>
+        <div class='gridViewInfo'>" . $row['title'] .
+            "</div>
+            </div>";
+    }
+
+    ?>
+
+
+
+
 </div>
