@@ -25,8 +25,6 @@ Unleash the power of Samify to explore, play, and curate your music journey:
 
 - Artists and Albums at a Glance: Immerse yourself in your favourite artist and their iconic albums.
 
-- Intelligent Recommendations: Elevate your music exploration with tailored recommendations. Discover new tracks that resonate with your unique taste.
-
 - Responsive Design: Whether on your computer, tablet, or smartphone, Samify  ensures a consistent and optimised interface for your device.
 
 ## Installation
