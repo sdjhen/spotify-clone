@@ -12,8 +12,13 @@ class User
         $this->username = $username;
     }
 
-    public function getUserName()
+    function getUsername($con)
     {
-        return $this->username;
+        $query = "SELECT username FROM users";
+        $result = mysqli_query($con, $query);
+
+        if ($row = mysqli_fetch_assoc($result)) {
+            return $row['username'];
+        }
     }
 }

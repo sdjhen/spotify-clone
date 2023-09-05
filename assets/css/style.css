@@ -534,3 +534,16 @@ input:focus {
     width: 175px;
    
 }
+
+/* Settings Page Styling */
+
+.centerSection {
+    display: block;
+    margin: auto;
+}
+
+.userInfo {
+    text-align: center;
+}
+
+

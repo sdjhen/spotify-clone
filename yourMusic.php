@@ -21,7 +21,7 @@ include("inc/includedFiles.php");
     </div>
 
     <?php
-    $username = $userLoggedIn->getUserName();
+    $username = $userLoggedIn->getUserName($con);
 
     $playlistsQuery = mysqli_query($con, "SELECT * FROM playlists  WHERE owner='$username' ");
 
