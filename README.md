@@ -87,6 +87,10 @@ Harmonise with us by contributing to Samify's growth and enhancement. Your insig
 
 3. Harmonious Merge: Push your changes to your forked repository and create a pull request for review.
 
+## Credits
+
+Royalty Free Music obtained via https://pixabay.com/music/
+
 # License
 
 Please refer to the LICENSE in the repo.
