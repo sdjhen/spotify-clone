@@ -10,6 +10,12 @@ let shuffle = false;
 let userLoggedIn; // session variable
 let timer; // Search page timer
 
+const logout = () => {
+  $.post('inc/handlers/Ajax/logout.php', function () {
+    location.reload();
+  });
+};
+
 const openPage = (url) => {
   if (timer != null) {
     clearTimeout(timer);
@@ -38,7 +44,6 @@ const createPlaylist = (username) => {
         alert(error);
         return;
       }
-
       //do something when ajax returns
       openPage('yourMusic.php');
     });
