@@ -1,15 +1,18 @@
 <?php
 include("inc/config.php");
+include("inc/classes/User.php");
 include("inc/classes/Artist.php");
 include("inc/classes/Album.php");
 include("inc/classes/Song.php");
+include("inc/classes/Playlist.php");
 
 // Set session variable
 if (isset($_SESSION['userLoggedIn'])) {
-    $userLoggedIn = $_SESSION['userLoggedIn'];
+    $userLoggedIn = new User($con, $_SESSION['userLoggedIn']);
+    $username = $userLoggedIn->getUsername($con);
     echo <<<EOT
     <script>
-    userLoggedIn = '$userLoggedIn';
+    userLoggedIn = '$username';
     </script>
 EOT;
 } else {

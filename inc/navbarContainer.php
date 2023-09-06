@@ -28,7 +28,7 @@
              </div>
 
              <div class="navItem">
-                 <span role="link" tabindex="0" onclick="openPage('profile.php')" class="navItemLink">Sam Hendry</span>
+                 <span role="link" tabindex="0" onclick="openPage('settings.php')" class="navItemLink"><?php echo $userLoggedIn->getUsername($con) ?></span>
              </div>
          </div>
      </nav>
