@@ -57,6 +57,36 @@ For setting up a local development environment, downloading a software suite suc
 
 ## Screenshots
 
+Keep track and browse your favourite albums:
+
+![ALBUM](assets/img/albums.png)
+
+Or listen to the Artists you love the most:
+
+![ARTIST](assets/img/artist.png)
+
+Search for your most wanted Albums, Artists & Songs:
+
+![SEARCH](assets/img/search.png)
+
+Keep in control of your Samify account with your User dashboard:
+
+![USER](assets/img/user.png)
+
+AUDIO CONTROL FUNCTIONALITY:
+
+Pause & Mute Audio:
+
+![PAUSE](assets/img/pause.png)
+
+Keep that song on Repeat:
+
+![REPEAT](assets/img/repeat.png)
+
+Shuffle for variety:
+
+![SHUFFLE](assets/img/shuffle.png)
+
 ## Tech Stack
 
 Discover the technologies that orchestrate Samify's symphony:
